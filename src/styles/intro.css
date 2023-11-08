@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#intro {
+  z-index: 1;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: blue;
+  opacity: 0;
+}
+
+#intro.start-animation {
+  animation: intro 6s ease-in-out;
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+#logo {
+  opacity: 0;
+  z-index: 1;
+}
+
+#logo img {
+  width: inherit;
+}
+
+#logo.start-animation {
+  animation: logo 12.5s ease-out 7s;
+}
+
+@keyframes logo {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(3.5);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+#skip-intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: .3rem;
+  opacity: 0;
+  z-index: 1;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: small;
+  color: #ffc909;
+  background-color: #333;
+  border: none;
+}
+
+#skip-intro:hover{
+  cursor: pointer;
+}
+
+#skip-intro.start-animation {
+  opacity: 1;
+}
+
+#start {
+  z-index: 2;
+  width: 30%;
+  height: 15%;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 3rem;
+  border: .2rem dashed white;
+  color: #ffc909;
+  background-color: #000;
+}
+
+#start:hover{
+  cursor: pointer;
+}
+
+#start.start-animation {
+  animation: hide .5s ease-in-out forwards;
+  cursor: none;
+  pointer-events: none;
+}
+
+@keyframes hide {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    
+  }
+}
+
+p{
+  text-align: center;
+  line-height: 1.5em;
+}
+
+#wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  perspective: 20rem;
+}
+
+#scroller {
+  color: #ffc909;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: justify;
+  position: relative;
+  opacity: 0;
+}
+
+#scroller.start-animation{
+  animation: scroll 60s linear 14s;
+}
+
+@keyframes scroll {
+	0%{ 
+    top: 70%; 
+    transform: translateZ(300px) rotateX(10deg); 
+  }
+  5%{
+    opacity: 1;
+  }
+	100%{
+    top: -1500px; 
+    transform: translateZ(-250px) rotateX(10deg); 
+    opacity: 1;
+  }
+}
+
+body::after{
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+}
